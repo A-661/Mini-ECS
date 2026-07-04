@@ -29,6 +29,9 @@
     <ClInclude Include="Include\ECS\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ECS\ComponentPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Include\ECS\Components\HealthComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>

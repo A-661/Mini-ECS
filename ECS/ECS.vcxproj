@@ -390,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ECS\Component.h" />
+    <ClInclude Include="Include\ECS\ComponentPool.h" />
     <ClInclude Include="Include\ECS\Components\HealthComponent.h" />
     <ClInclude Include="Include\ECS\Components\TransformComponent.h" />
     <ClInclude Include="Include\ECS\Components\VelocityComponent.h" />
