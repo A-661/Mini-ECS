@@ -1,16 +1,21 @@
 #pragma once
 #include "ECS/Component.h"
+#include "ECS/Math/Vector3.h"
 
 struct VelocityComponent : ComponentTag
 {
-    float vx = 0.0f;
-    float vy = 0.0f;
-    float vz = 0.0f;
+    Vector3 linearVelocity;
+    Vector3 angularVelocity;
 
     VelocityComponent() = default;
 
     VelocityComponent(float inVx, float inVy, float inVz)
-        : vx(inVx), vy(inVy), vz(inVz)
+        : linearVelocity(inVx, inVy, inVz)
+    {
+    }
+
+    VelocityComponent(const Vector3& inLinearVelocity, const Vector3& inAngularVelocity = Vector3{})
+        : linearVelocity(inLinearVelocity), angularVelocity(inAngularVelocity)
     {
     }
 };

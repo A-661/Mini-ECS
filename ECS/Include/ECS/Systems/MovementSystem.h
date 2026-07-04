@@ -14,16 +14,15 @@ public:
     {
         world.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)
             {
-                const float dx = vel.vx * dt;
-                const float dy = vel.vy * dt;
-                const float dz = vel.vz * dt;
+                const Vector3 deltaPosition = vel.linearVelocity * dt;
+                const Vector3 deltaRotation = vel.angularVelocity * dt;
 
-                tr.x += dx;
-                tr.y += dy;
-                tr.z += dz;
+                tr.position += deltaPosition;
+                tr.rotation += deltaRotation;
 
                 std::cout << "  Moved entity " << entity
-                    << " by (" << dx << ", " << dy << ", " << dz << ")\n";
+                    << " by (" << deltaPosition.x << ", " << deltaPosition.y << ", " << deltaPosition.z << ")"
+                    << " and rotated by (" << deltaRotation.x << ", " << deltaRotation.y << ", " << deltaRotation.z << ")\n";
             });
     }
 };

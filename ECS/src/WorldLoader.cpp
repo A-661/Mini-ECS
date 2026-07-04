@@ -13,11 +13,22 @@ bool WorldLoader::LoadFromFile(World& world, const std::filesystem::path& path)
     /* example creating entities */
     
     Entity e1 = world.CreateEntity();
-    world.AddComponent<TransformComponent>(e1, TransformComponent{ 0.0f, 1.0f, 2.0f });
-    world.AddComponent<VelocityComponent>(e1, VelocityComponent{ 1.0f, 0.0f, 0.0f });
+    world.AddComponent<TransformComponent>(e1, TransformComponent{
+        Vector3{ 0.0f, 1.0f, 2.0f },
+        Vector3{ 0.0f, 0.0f, 0.0f },
+        Vector3{ 1.0f, 1.0f, 1.0f }
+    });
+    world.AddComponent<VelocityComponent>(e1, VelocityComponent{
+        Vector3{ 1.0f, 0.0f, 0.0f },
+        Vector3{ 0.0f, 0.0f, 90.0f }
+    });
     
     Entity e2 = world.CreateEntity();
-    world.AddComponent<TransformComponent>(e2, TransformComponent{ 10.0f, 20.0f, 30.0f });
+    world.AddComponent<TransformComponent>(e2, TransformComponent{
+        Vector3{ 10.0f, 20.0f, 30.0f },
+        Vector3{ 0.0f, 45.0f, 0.0f },
+        Vector3{ 1.0f, 1.0f, 1.0f }
+    });
     
     return true;
 }
