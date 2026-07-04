@@ -395,6 +395,7 @@
     <ClInclude Include="Include\ECS\Components\VelocityComponent.h" />
     <ClInclude Include="Include\ECS\ECSStorage.h" />
     <ClInclude Include="Include\ECS\Entity.h" />
+    <ClInclude Include="Include\ECS\Math\Vector3.h" />
     <ClInclude Include="Include\ECS\SceneManager.h" />
     <ClInclude Include="Include\ECS\System.h" />
     <ClInclude Include="Include\ECS\Systems\MovementSystem.h" />
