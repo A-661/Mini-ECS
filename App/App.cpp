@@ -26,6 +26,24 @@ int main()
         return -1;
     }
 
+    Entity destroyTestEntity = world1->CreateEntity();
+    world1->AddComponent<TransformComponent>(destroyTestEntity, TransformComponent{
+        Vector3{ 100.0f, 100.0f, 100.0f },
+        Vector3{ 0.0f, 0.0f, 0.0f },
+        Vector3{ 1.0f, 1.0f, 1.0f }
+    });
+    world1->AddComponent<HealthComponent>(destroyTestEntity, HealthComponent{ 10.0f, 10.0f });
+
+    std::cout << "destroy test before | alive: " << world1->IsEntityAlive(destroyTestEntity)
+        << " | transform: " << world1->HasComponent<TransformComponent>(destroyTestEntity)
+        << " | health: " << world1->HasComponent<HealthComponent>(destroyTestEntity) << "\n";
+
+    world1->DestroyEntity(destroyTestEntity);
+
+    std::cout << "destroy test after | alive: " << world1->IsEntityAlive(destroyTestEntity)
+        << " | transform: " << world1->HasComponent<TransformComponent>(destroyTestEntity)
+        << " | health: " << world1->HasComponent<HealthComponent>(destroyTestEntity) << "\n";
+
     // priority 1
     sceneManager.AddSystem<TestSystem>(world2, 1, "Animation (world2)");
     sceneManager.AddSystem<TestSystem>(world1, 1, "Scripting (world1)");
