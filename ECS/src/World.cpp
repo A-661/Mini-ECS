@@ -20,6 +20,26 @@ void World::Tick(float dt) // not implemented
     // scripting here
 }
 
+Entity World::CreateEntity()
+{
+    return _ecs.CreateEntity();
+}
+
+void World::DestroyEntity(Entity entity)
+{
+    _ecs.DestroyEntity(entity);
+}
+
+bool World::IsEntityAlive(Entity entity) const
+{
+    return _ecs.IsAlive(entity);
+}
+
+size_t World::GetEntityCount() const
+{
+    return _ecs.GetEntityCount();
+}
+
 void World::SetTimeScale(float scale) { _timeScale = scale; }
 
 float World::GetTimeScale() const { return _timeScale; }
@@ -30,6 +50,11 @@ bool World::IsPaused() const { return _bPaused; }
 
 void World::SetName(std::string name) {
     _desc.Name = name;
+}
+
+const std::string& World::GetName() const
+{
+    return _desc.Name;
 }
 
 const std::filesystem::path& World::GetPath() const { return _desc.WorldFilePath; }

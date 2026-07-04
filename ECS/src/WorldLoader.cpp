@@ -12,14 +12,12 @@ bool WorldLoader::LoadFromFile(World& world, const std::filesystem::path& path)
     
     /* example creating entities */
     
-    WorldECS& ecs = world.GetECS();
-
-    Entity e1 = ecs.CreateEntity();
-    ecs.AddComponent<TransformComponent>(e1, TransformComponent{ 0.0f, 1.0f, 2.0f });
-    ecs.AddComponent<VelocityComponent>(e1, VelocityComponent{ 1.0f, 0.0f, 0.0f });
+    Entity e1 = world.CreateEntity();
+    world.AddComponent<TransformComponent>(e1, TransformComponent{ 0.0f, 1.0f, 2.0f });
+    world.AddComponent<VelocityComponent>(e1, VelocityComponent{ 1.0f, 0.0f, 0.0f });
     
-    Entity e2 = ecs.CreateEntity();
-    ecs.AddComponent<TransformComponent>(e2, TransformComponent{ 10.0f, 20.0f, 30.0f });
+    Entity e2 = world.CreateEntity();
+    world.AddComponent<TransformComponent>(e2, TransformComponent{ 10.0f, 20.0f, 30.0f });
     
     return true;
 }

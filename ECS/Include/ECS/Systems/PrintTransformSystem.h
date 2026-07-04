@@ -12,9 +12,7 @@ public:
 
     void Tick(World& world, float dt) override
     {
-        WorldECS& ecs = world.GetECS();
-
-        ecs.ForEach<TransformComponent>([](Entity entity, TransformComponent& tr)
+        world.ForEach<TransformComponent>([](Entity entity, TransformComponent& tr)
             {
                 std::cout << "  Entity " << entity
                     << " location = (" << tr.x << ", " << tr.y << ", " << tr.z << ")\n";

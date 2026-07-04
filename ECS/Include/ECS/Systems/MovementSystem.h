@@ -12,9 +12,7 @@ public:
 
     void Tick(World& world, float dt) override
     {
-        WorldECS& ecs = world.GetECS();
-
-        ecs.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)
+        world.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)
             {
                 const float dx = vel.vx * dt;
                 const float dy = vel.vy * dt;
