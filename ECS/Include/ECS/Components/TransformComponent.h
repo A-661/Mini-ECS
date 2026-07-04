@@ -15,8 +15,8 @@ struct TransformComponent : ComponentTag
     {
     }
 
-    TransformComponent(const Vector3& Position, const Vector3& Rotation, const Vector3& Scale)
-        : position(Position), rotation(Rotation), scale(Scale)
+    TransformComponent(const Vector3& inPosition, const Vector3& inRotation, const Vector3& inScale)
+        : position(inPosition), rotation(inRotation), scale(inScale)
     {
     }
 };

@@ -7,5 +7,5 @@ struct HealthComponent : ComponentTag
 
     HealthComponent() = default;
 
-    HealthComponent(float currentHP, float maxHP) : currentHP(currentHP), maxHP(maxHP) {}
+    HealthComponent(float inCurrentHP, float inMaxHP) : currentHP(inCurrentHP), maxHP(inMaxHP) {}
 };
