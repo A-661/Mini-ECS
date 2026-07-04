@@ -1,0 +1,47 @@
+#pragma once
+#include <string>
+#include <filesystem>
+#include <cstdint>
+
+#include "WorldECS.h"
+
+struct WorldDesc {
+    std::filesystem::path WorldFilePath;
+    std::string Name;
+};
+
+class World {
+public:
+    World(const WorldDesc& desc)
+        : _desc(desc)
+    {
+    }
+
+    bool Load();
+
+    bool Save(std::filesystem::path path);
+    
+    void Tick(float dt);
+
+    void SetTimeScale(float scale);
+    float GetTimeScale() const;
+
+    void SetPaused(bool paused);
+    bool IsPaused() const;
+
+    WorldECS& GetECS();
+    const WorldECS& GetECS() const;
+
+    void SetName(std::string name);
+
+    const std::filesystem::path& GetPath() const;
+
+private:
+    
+    WorldDesc _desc;
+
+    WorldECS _ecs;
+
+    float _timeScale = 1.0f;
+    bool _bPaused = false;
+};
