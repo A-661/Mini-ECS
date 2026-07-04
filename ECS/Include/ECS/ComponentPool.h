@@ -29,6 +29,29 @@ struct ComponentStorageTraits
         }
     }
 
+    template<typename... Args>
+    static T& Assign(StoredType& value, Args&&... args)
+    {
+        if constexpr (UsePointerComponentStorage)
+        {
+            if (!value)
+            {
+                value = Create(std::forward<Args>(args)...);
+            }
+            else
+            {
+                *value = T(std::forward<Args>(args)...);
+            }
+
+            return *value;
+        }
+        else
+        {
+            value = T(std::forward<Args>(args)...);
+            return value;
+        }
+    }
+
     static T& Get(StoredType& value)
     {
         if constexpr (UsePointerComponentStorage)
@@ -68,6 +91,12 @@ public:
         _denseComponents.clear();
     }
 
+    void Reserve(size_t capacity)
+    {
+        _denseEntities.reserve(capacity);
+        _denseComponents.reserve(capacity);
+    }
+
     bool Has(Entity entity) const
     {
         if (entity >= _sparse.size())
@@ -93,8 +122,7 @@ public:
 
         if (Has(entity))
         {
-            _denseComponents[_sparse[entity]] = StorageTraits::Create(std::forward<Args>(args)...);
-            return StorageTraits::Get(_denseComponents[_sparse[entity]]);
+            return StorageTraits::Assign(_denseComponents[_sparse[entity]], std::forward<Args>(args)...);
         }
 
         size_t newIndex = _denseComponents.size();
