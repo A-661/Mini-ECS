@@ -201,7 +201,7 @@ public:
     }
 
     template<typename T, typename... Args>
-    T& Add(Entity entity, Args&&... args)
+    T& AddComponent(Entity entity, Args&&... args)
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
         return GetPool<T>().Emplace(entity, std::forward<Args>(args)...);

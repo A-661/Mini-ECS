@@ -15,11 +15,11 @@ bool WorldLoader::LoadFromFile(World& world, const std::filesystem::path& path)
     WorldECS& ecs = world.GetECS();
 
     Entity e1 = ecs.CreateEntity();
-    ecs.Add<TransformComponent>(e1, TransformComponent{ 0.0f, 1.0f, 2.0f });
-    ecs.Add<VelocityComponent>(e1, VelocityComponent{ 1.0f, 0.0f, 0.0f });
+    ecs.AddComponent<TransformComponent>(e1, TransformComponent{ 0.0f, 1.0f, 2.0f });
+    ecs.AddComponent<VelocityComponent>(e1, VelocityComponent{ 1.0f, 0.0f, 0.0f });
     
     Entity e2 = ecs.CreateEntity();
-    ecs.Add<TransformComponent>(e2, TransformComponent{ 10.0f, 20.0f, 30.0f });
+    ecs.AddComponent<TransformComponent>(e2, TransformComponent{ 10.0f, 20.0f, 30.0f });
     
     return true;
 }
