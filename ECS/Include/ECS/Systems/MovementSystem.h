@@ -14,14 +14,18 @@ public:
     {
         WorldECS& ecs = world.GetECS();
 
-        ecs.ForEach<TransformComponent, VelocityComponent>([](Entity entity, TransformComponent& tr, VelocityComponent& vel)
+        ecs.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)
             {
-                tr.x += vel.vx;
-                tr.y += vel.vy;
-                tr.z += vel.vz;
+                const float dx = vel.vx * dt;
+                const float dy = vel.vy * dt;
+                const float dz = vel.vz * dt;
+
+                tr.x += dx;
+                tr.y += dy;
+                tr.z += dz;
 
                 std::cout << "  Moved entity " << entity
-                    << " by (" << vel.vx << ", " << vel.vy << ", " << vel.vz << ")\n";
+                    << " by (" << dx << ", " << dy << ", " << dz << ")\n";
             });
     }
 };
