@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <cstdint>
 #include <utility>
+#include <vector>
 
 #include "WorldECS.h"
 
@@ -28,6 +29,7 @@ public:
     void DestroyEntity(Entity entity);
     bool IsEntityAlive(Entity entity) const;
     size_t GetEntityCount() const;
+    std::vector<Entity> GetAliveEntities() const;
 
     template<typename T, typename... Args>
     T& AddComponent(Entity entity, Args&&... args)

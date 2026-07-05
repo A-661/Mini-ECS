@@ -40,6 +40,11 @@ size_t World::GetEntityCount() const
     return _ecs.GetEntityCount();
 }
 
+std::vector<Entity> World::GetAliveEntities() const
+{
+    return _ecs.GetAliveEntities();
+}
+
 void World::SetTimeScale(float scale) { _timeScale = scale; }
 
 float World::GetTimeScale() const { return _timeScale; }
