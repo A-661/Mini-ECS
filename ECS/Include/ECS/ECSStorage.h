@@ -3,6 +3,7 @@
 #include <vector>
 #include <limits>
 #include <cstdint>
+#include <stdexcept>
 #include <type_traits>
 #include <utility>
 #include "ECS/Entity.h"
@@ -100,6 +101,11 @@ public:
     T& AddComponent(Entity entity, Args&&... args)
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
+        if (!IsAlive(entity))
+        {
+            throw std::runtime_error("AddComponent failed: entity is not alive");
+        }
+
         return GetPool<T>().Emplace(entity, std::forward<Args>(args)...);
     }
 
@@ -107,6 +113,11 @@ public:
     void RemoveComponent(Entity entity)
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
+        if (!IsAlive(entity))
+        {
+            return;
+        }
+
         GetPool<T>().Remove(entity);
     }
 
@@ -114,6 +125,11 @@ public:
     bool HasComponent(Entity entity) const
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
+        if (!IsAlive(entity))
+        {
+            return false;
+        }
+
         return GetPool<T>().Has(entity);
     }
 
@@ -121,14 +137,36 @@ public:
     T& GetComponent(Entity entity)
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
-        return GetPool<T>().Get(entity);
+        if (!IsAlive(entity))
+        {
+            throw std::runtime_error("GetComponent failed: entity is not alive");
+        }
+
+        ComponentPool<T>& pool = GetPool<T>();
+        if (!pool.Has(entity))
+        {
+            throw std::runtime_error("GetComponent failed: entity does not have requested component");
+        }
+
+        return pool.Get(entity);
     }
 
     template<typename T>
     const T& GetComponent(Entity entity) const
     {
         static_assert(IsOneOf<T, Components...>::value, "T is not registered in ECSStorage");
-        return GetPool<T>().Get(entity);
+        if (!IsAlive(entity))
+        {
+            throw std::runtime_error("GetComponent failed: entity is not alive");
+        }
+
+        const ComponentPool<T>& pool = GetPool<T>();
+        if (!pool.Has(entity))
+        {
+            throw std::runtime_error("GetComponent failed: entity does not have requested component");
+        }
+
+        return pool.Get(entity);
     }
 
     template<typename T>

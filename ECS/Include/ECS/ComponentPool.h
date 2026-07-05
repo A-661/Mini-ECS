@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <memory>
+#include <stdexcept>
 #include <type_traits>
 #include <utility>
 #include <vector>
@@ -75,6 +76,18 @@ struct ComponentStorageTraits
             return value;
         }
     }
+
+    static bool IsValid(const StoredType& value)
+    {
+        if constexpr (UsePointerComponentStorage)
+        {
+            return value != nullptr;
+        }
+        else
+        {
+            return true;
+        }
+    }
 };
 
 template<typename T>
@@ -106,7 +119,10 @@ public:
         if (denseIndex == InvalidIndex)
             return false;
 
-        return denseIndex < _denseEntities.size() && _denseEntities[denseIndex] == entity;
+        return denseIndex < _denseEntities.size() &&
+            _denseEntities[denseIndex] == entity &&
+            denseIndex < _denseComponents.size() &&
+            StorageTraits::IsValid(_denseComponents[denseIndex]);
     }
 
     T& Add(Entity entity, const T& value = T{})
@@ -155,11 +171,21 @@ public:
 
     T& Get(Entity entity)
     {
+        if (!Has(entity))
+        {
+            throw std::out_of_range("ComponentPool::Get failed: component does not exist for entity");
+        }
+
         return StorageTraits::Get(_denseComponents[_sparse[entity]]);
     }
 
     const T& Get(Entity entity) const
     {
+        if (!Has(entity))
+        {
+            throw std::out_of_range("ComponentPool::Get failed: component does not exist for entity");
+        }
+
         return StorageTraits::Get(_denseComponents[_sparse[entity]]);
     }
 
