@@ -1,0 +1,3 @@
+[submodule "ThirdParty/RapidYAML"]
+	path = ThirdParty/RapidYAML
+	url = https://github.com/biojppm/rapidyaml.git
