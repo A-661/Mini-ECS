@@ -80,6 +80,22 @@ public:
         return count;
     }
 
+    std::vector<Entity> GetAliveEntities() const
+    {
+        std::vector<Entity> result;
+        result.reserve(GetEntityCount());
+
+        for (size_t i = 0; i < _aliveList.size(); ++i)
+        {
+            if (_aliveList[i])
+            {
+                result.push_back(static_cast<Entity>(i));
+            }
+        }
+
+        return result;
+    }
+
     template<typename T, typename... Args>
     T& AddComponent(Entity entity, Args&&... args)
     {
