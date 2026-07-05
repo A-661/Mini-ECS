@@ -1,0 +1,64 @@
+Scene:
+  Name: DemoScene
+
+  Worlds:
+    - Name: GameWorld
+      Paused: false
+      TimeScale: 1.0
+
+      Systems:
+        - Type: MovementSystem
+          Priority: 0
+        - Type: PrintTransformSystem
+          Priority: 10
+
+      Entities:
+        - Id: Player
+          Components:
+            Name:
+              Value: Player
+
+            Transform:
+              Position: [0.0, 0.0, 0.0]
+              Rotation: [0.0, 0.0, 0.0]
+              Scale: [1.0, 1.0, 1.0]
+
+            Velocity:
+              Value: [1.0, 0.0, 0.0]
+
+            Health:
+              Current: 100
+              Max: 100
+
+        - Id: Enemy
+          Components:
+            Name:
+              Value: Enemy
+
+            Transform:
+              Position: [5.0, 0.0, 0.0]
+              Rotation: [0.0, 0.0, 0.0]
+              Scale: [1.0, 1.0, 1.0]
+
+            Health:
+              Current: 50
+              Max: 50
+
+    - Name: SecondWorld
+      Paused: false
+      TimeScale: 1.0
+
+      Systems:
+        - Type: PrintTransformSystem
+          Priority: 0
+
+      Entities:
+        - Id: Text
+          Components:
+            Name:
+              Value: Text
+
+            Transform:
+              Position: [0.0, 10.0, 0.0]
+              Rotation: [0.0, 0.0, 0.0]
+              Scale: [1.0, 1.0, 1.0]
