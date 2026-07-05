@@ -387,6 +387,23 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\common.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\emit_buf.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\emit_file.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\node_type.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\parse.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\reference_resolver.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\scalar_style.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\tag.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\tree.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\src\c4\yml\version.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\base64.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\error.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\format.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\language.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\memory_util.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\utf.cpp" />
+    <ClCompile Include="..\ThirdParty\RapidYAML\ext\c4core.src\c4\version.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ECS\Component.h" />
@@ -406,6 +423,7 @@
     <ClInclude Include="Include\ECS\World.h" />
     <ClInclude Include="Include\ECS\WorldECS.h" />
     <ClInclude Include="Include\ECS\WorldLoader.h" />
+    <ClInclude Include="Include\ECS\RymlUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
