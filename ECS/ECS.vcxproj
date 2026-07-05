@@ -409,7 +409,6 @@
     <ClInclude Include="Include\ECS\System.h" />
     <ClInclude Include="Include\ECS\Systems\MovementSystem.h" />
     <ClInclude Include="Include\ECS\Systems\PrintTransformSystem.h" />
-    <ClInclude Include="Include\ECS\Systems\TestSystem.h" />
     <ClInclude Include="Include\ECS\World.h" />
     <ClInclude Include="Include\ECS\WorldECS.h" />
     <ClInclude Include="Include\ECS\WorldLoader.h" />

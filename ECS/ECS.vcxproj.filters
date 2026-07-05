@@ -110,12 +110,6 @@
     <ClInclude Include="Include\ECS\System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\ECS\Systems\TestComponentPoolSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\ECS\Systems\TestSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\ECS\Systems\MovementSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>

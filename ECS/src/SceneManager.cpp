@@ -5,7 +5,6 @@
 #include "ECS/WorldLoader.h"
 #include "ECS/Systems/MovementSystem.h"
 #include "ECS/Systems/PrintTransformSystem.h"
-#include "ECS/Systems/TestSystem.h"
 
 #include <algorithm>
 #include <filesystem>
@@ -349,11 +348,6 @@ std::unique_ptr<System> SceneManager::CreateSystemByName(const std::string& type
     if (type == "PrintTransformSystem")
     {
         return std::make_unique<PrintTransformSystem>();
-    }
-
-    if (type == "TestSystem")
-    {
-        return std::make_unique<TestSystem>("Loaded TestSystem");
     }
 
     return nullptr;
