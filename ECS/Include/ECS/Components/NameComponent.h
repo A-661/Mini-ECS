@@ -4,7 +4,7 @@
 
 #include "ECS/Component.h"
 
-struct NameComponent : ComponentTag
+struct NameComponent : Component
 {
     std::string value;
 

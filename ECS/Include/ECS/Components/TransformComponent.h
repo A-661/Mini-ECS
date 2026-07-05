@@ -2,7 +2,7 @@
 #include "ECS/Component.h"
 #include "ECS/Math/Vector3.h"
 
-struct TransformComponent : ComponentTag
+struct TransformComponent : Component
 {
     Vector3 position = Vector3{ 0.0f, 0.0f, 0.0f };
     Vector3 rotation = Vector3{ 0.0f, 0.0f, 0.0f };

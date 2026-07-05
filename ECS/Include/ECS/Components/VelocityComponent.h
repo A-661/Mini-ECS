@@ -2,7 +2,7 @@
 #include "ECS/Component.h"
 #include "ECS/Math/Vector3.h"
 
-struct VelocityComponent : ComponentTag
+struct VelocityComponent : Component
 {
     Vector3 linearVelocity;
     Vector3 angularVelocity;
