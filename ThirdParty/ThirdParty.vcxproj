@@ -156,6 +156,21 @@
   <ItemGroup>
     <ClCompile Include="ThirdParty.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RapidYAML\.gitignore" />
+    <None Include="RapidYAML\CMakeLists.txt" />
+    <None Include="RapidYAML\LICENSE.txt" />
+    <None Include="RapidYAML\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RapidYAML\src\ryml.hpp" />
+    <ClInclude Include="RapidYAML\src\ryml_std.hpp" />
+    <ClInclude Include="RapidYAML\src\c4\yml\yml.hpp" />
+    <ClInclude Include="RapidYAML\src\c4\yml\parse.hpp" />
+    <ClInclude Include="RapidYAML\src\c4\yml\tree.hpp" />
+    <ClInclude Include="RapidYAML\ext\c4core.src\c4\substr.hpp" />
+    <ClInclude Include="RapidYAML\ext\c4core.src\c4\types.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

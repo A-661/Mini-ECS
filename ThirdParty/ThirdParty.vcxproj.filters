@@ -13,10 +13,59 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="RapidYAML">
+      <UniqueIdentifier>{38502A80-6953-4DAF-9A07-D87B25C9559E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RapidYAML\src">
+      <UniqueIdentifier>{0F2924B4-BB1E-4DF7-8277-537458C90241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RapidYAML\src\c4\yml">
+      <UniqueIdentifier>{4233611F-CC6B-4929-9B61-7735D1F32C29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RapidYAML\ext\c4core.src\c4">
+      <UniqueIdentifier>{6C8D30ED-EAE7-43D9-B8C8-C870B1241B4E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ThirdParty.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RapidYAML\.gitignore">
+      <Filter>RapidYAML</Filter>
+    </None>
+    <None Include="RapidYAML\CMakeLists.txt">
+      <Filter>RapidYAML</Filter>
+    </None>
+    <None Include="RapidYAML\LICENSE.txt">
+      <Filter>RapidYAML</Filter>
+    </None>
+    <None Include="RapidYAML\README.md">
+      <Filter>RapidYAML</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RapidYAML\src\ryml.hpp">
+      <Filter>RapidYAML\src</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\src\ryml_std.hpp">
+      <Filter>RapidYAML\src</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\src\c4\yml\yml.hpp">
+      <Filter>RapidYAML\src\c4\yml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\src\c4\yml\parse.hpp">
+      <Filter>RapidYAML\src\c4\yml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\src\c4\yml\tree.hpp">
+      <Filter>RapidYAML\src\c4\yml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\ext\c4core.src\c4\substr.hpp">
+      <Filter>RapidYAML\ext\c4core.src\c4</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidYAML\ext\c4core.src\c4\types.hpp">
+      <Filter>RapidYAML\ext\c4core.src\c4</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
