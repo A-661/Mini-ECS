@@ -14,7 +14,8 @@ public:
 
     void Tick(World& world, float dt) override
     {
-        world.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)
+        const std::string& worldName = world.GetName();
+        world.ForEach<TransformComponent, VelocityComponent>([dt, &worldName](Entity entity, TransformComponent& tr, VelocityComponent& vel)
             {
                 const Vector3 deltaPosition = vel.linearVelocity * dt;
                 const Vector3 deltaRotation = vel.angularVelocity * dt;
@@ -22,7 +23,7 @@ public:
                 tr.position += deltaPosition;
                 tr.rotation += deltaRotation;
 
-                std::cout << "  Moved entity " << entity
+                std::cout << "  [" << worldName << "] Moved entity " << entity
                     << " by (" << deltaPosition.x << ", " << deltaPosition.y << ", " << deltaPosition.z << ")"
                     << " and rotated by (" << deltaRotation.x << ", " << deltaRotation.y << ", " << deltaRotation.z << ")\n";
             });

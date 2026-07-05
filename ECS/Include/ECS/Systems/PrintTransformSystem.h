@@ -14,9 +14,10 @@ public:
 
     void Tick(World& world, float dt) override
     {
-        world.ForEach<TransformComponent>([](Entity entity, TransformComponent& tr)
+        const std::string& worldName = world.GetName();
+        world.ForEach<TransformComponent>([&worldName](Entity entity, TransformComponent& tr)
             {
-                std::cout << "  Entity " << entity
+                std::cout << "  [" << worldName << "] Entity " << entity
                     << " position = (" << tr.position.x << ", " << tr.position.y << ", " << tr.position.z << ")"
                     << " rotation = (" << tr.rotation.x << ", " << tr.rotation.y << ", " << tr.rotation.z << ")"
                     << " scale = (" << tr.scale.x << ", " << tr.scale.y << ", " << tr.scale.z << ")\n";
