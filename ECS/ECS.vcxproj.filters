@@ -35,6 +35,9 @@
     <ClInclude Include="Include\ECS\Components\HealthComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ECS\Components\NameComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Include\ECS\Components\TransformComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
