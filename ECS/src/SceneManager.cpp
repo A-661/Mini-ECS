@@ -107,12 +107,6 @@ bool SceneManager::UnloadWorld(size_t index)
     return true;
 }
 
-bool SceneManager::SaveWorld(World* world, const std::filesystem::path& path)
-{
-    if (!world->Save(path)) { return false; }
-    return true;
-}
-
 bool SceneManager::SaveScene(const std::filesystem::path& path) const
 {
     std::ofstream file(path);

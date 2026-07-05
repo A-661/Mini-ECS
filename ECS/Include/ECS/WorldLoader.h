@@ -15,6 +15,4 @@ public:
         const std::string& context = "World");
 
     static bool LoadFromFile(World& world, const std::filesystem::path& path);
-
-    static bool SaveToFile(World& world, const std::filesystem::path& path);
 };

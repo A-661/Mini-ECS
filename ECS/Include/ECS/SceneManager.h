@@ -23,8 +23,6 @@ public:
 
     bool UnloadWorld(size_t index);
 
-    bool SaveWorld(World* world, const std::filesystem::path& path);
-
     bool SaveScene(const std::filesystem::path& path) const;
     bool LoadScene(const std::filesystem::path& path);
 

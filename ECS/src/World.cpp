@@ -6,11 +6,6 @@ bool World::Load()
     return WorldLoader::LoadFromFile(*this, _desc.WorldFilePath);
 }
 
-bool World::Save(std::filesystem::path path)
-{
-    return WorldLoader::SaveToFile(*this, path);
-}
-
 void World::Tick(float dt) // not implemented
 {
     if (_bPaused) { return; }

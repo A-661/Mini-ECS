@@ -20,8 +20,6 @@ public:
     }
 
     bool Load();
-
-    bool Save(std::filesystem::path path);
     
     void Tick(float dt);
 

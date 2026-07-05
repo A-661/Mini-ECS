@@ -177,9 +177,3 @@ bool WorldLoader::LoadFromFile(World& world, const std::filesystem::path& path)
         return false;
     }
 }
-
-bool WorldLoader::SaveToFile(World& world, const std::filesystem::path& path)
-{
-    // todo construct yaml and save
-    return true;
-}
