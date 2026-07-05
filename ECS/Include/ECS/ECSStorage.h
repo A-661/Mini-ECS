@@ -40,6 +40,7 @@ public:
         ClearPools<0>();
     }
 
+    // reuses destroyed entity ids through a free list
     Entity CreateEntity()
     {
         if (!_freeList.empty())
@@ -55,6 +56,7 @@ public:
         return created;
     }
 
+    // marks id as dead and makes it available for reuse
     void DestroyEntity(Entity entity)
     {
         if (!IsAlive(entity))
@@ -183,6 +185,7 @@ public:
         return std::get<ComponentPool<T>>(_pools);
     }
     
+    // iterates over component pools
     template<typename T, typename Func>
     void ForEach(Func&& func)
     {
@@ -197,6 +200,7 @@ public:
         }
     }
 
+    // for multiple components, entities without all required components are skipped
     template<typename First, typename Second, typename... Rest, typename Func>
     void ForEach(Func&& func)
     {

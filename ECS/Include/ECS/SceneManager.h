@@ -11,6 +11,8 @@
 
 class World;
 
+// main entry-point for multi-world ECS
+// SceneManager owns systems, but each system is bound to a specific world
 class SceneManager
 {
 public:
@@ -22,7 +24,8 @@ public:
     bool LoadWorld(const std::filesystem::path& path);
 
     bool UnloadWorld(size_t index);
-
+    
+    // saves and loads the full scene files
     bool SaveScene(const std::filesystem::path& path) const;
     bool LoadScene(const std::filesystem::path& path);
 
@@ -48,12 +51,14 @@ public:
         entry.type = entry.system->GetTypeName();
 
         _systemVector.push_back(std::move(entry));
-
+        
+        // keep insertion order for same priorities
         SortSystems();
     }
 
     bool AddSystemByName(World* world, const std::string& type, uint8_t priority);
 
+    // systems are ticked by global priority, not sequentially per world
     void Tick(float dt);
 
 private:

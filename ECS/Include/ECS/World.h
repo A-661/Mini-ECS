@@ -12,6 +12,8 @@ struct WorldDesc {
     std::string Name;
 };
 
+// public API over ECSStorage
+// external code should use World methods instead of storage directly
 class World {
 public:
     World(const WorldDesc& desc)
@@ -71,6 +73,7 @@ public:
     void SetPaused(bool paused);
     bool IsPaused() const;
 
+    // low-level access to ECSStorage
     WorldECS& GetECS();
     const WorldECS& GetECS() const;
 

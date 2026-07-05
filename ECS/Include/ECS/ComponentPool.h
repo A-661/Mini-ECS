@@ -30,6 +30,8 @@ struct ComponentStorageTraits
         }
     }
 
+    // assigns new component value without changing external API.
+    // in pointer-storage mode updates the existing object instead of replacing
     template<typename... Args>
     static T& Assign(StoredType& value, Args&&... args)
     {
@@ -90,6 +92,7 @@ struct ComponentStorageTraits
     }
 };
 
+// sparse array maps Entity id => dense index.
 template<typename T>
 class ComponentPool
 {

@@ -51,6 +51,7 @@ namespace
     }
 }
 
+// loads one world from already parsed YAML node
 bool WorldLoader::LoadWorldFromYamlNode(World& world, ryml::ConstNodeRef worldNode, const std::string& context)
 {
     try
@@ -74,6 +75,7 @@ bool WorldLoader::LoadWorldFromYamlNode(World& world, ryml::ConstNodeRef worldNo
         std::vector<std::pair<ryml::ConstNodeRef, Entity>> entityLoadList;
         entityLoadList.reserve(static_cast<size_t>(entitiesNode.num_children()));
 
+        // first pass - create all runtime entities and build YAML id => Entity map
         size_t entityIndex = 0;
         for (ryml::ConstNodeRef entityNode : entitiesNode.children())
         {
@@ -97,6 +99,7 @@ bool WorldLoader::LoadWorldFromYamlNode(World& world, ryml::ConstNodeRef worldNo
             ++entityIndex;
         }
 
+        // second pass - add components after all entities exist
         for (const auto& [entityNode, entity] : entityLoadList)
         {
             if (!RymlUtils::HasChild(entityNode, "Components"))
@@ -137,6 +140,7 @@ bool WorldLoader::LoadWorldFromYamlNode(World& world, ryml::ConstNodeRef worldNo
                 }
                 else
                 {
+                    // yes, its a forward-compatible loader with file versions
                     std::cerr << "[WorldLoader] Warning: unknown component '" << componentType
                         << "' on Entity '" << yamlId << "' in World '" << worldName << "'\n";
                 }

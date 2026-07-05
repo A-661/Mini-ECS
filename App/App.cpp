@@ -56,6 +56,12 @@ namespace
     }
 }
 
+// Demo:
+// 1. load scene from YAML
+// 2. print worlds/entities/components
+// 3. tick systems 3 times
+// 4. save changed scene back to YAML
+
 int main()
 {
     std::cout << "Engine test start...\n";
