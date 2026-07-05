@@ -84,7 +84,7 @@ int main()
         sceneManager.Tick(1.0f);
     }
 
-    const char* savedScenePath = "SavedDemoScene.yaml";
+    const char* savedScenePath = "Assets\\Scenes\\SavedDemoScene.yaml";
     if (!sceneManager.SaveScene(savedScenePath))
     {
         std::cout << "Failed to save scene: " << savedScenePath << "\n";
