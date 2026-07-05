@@ -11,6 +11,8 @@ public:
     {
     }
 
+    const char* GetTypeName() const override { return "TestSystem"; }
+
     void Tick(World& world, float dt) override
     {
         std::cout << "[TestSystem] " << m_name

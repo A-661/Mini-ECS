@@ -10,6 +10,8 @@ public:
     {
     }
 
+    const char* GetTypeName() const override { return "MovementSystem"; }
+
     void Tick(World& world, float dt) override
     {
         world.ForEach<TransformComponent, VelocityComponent>([dt](Entity entity, TransformComponent& tr, VelocityComponent& vel)

@@ -10,6 +10,8 @@ public:
     {
     }
 
+    const char* GetTypeName() const override { return "PrintTransformSystem"; }
+
     void Tick(World& world, float dt) override
     {
         world.ForEach<TransformComponent>([](Entity entity, TransformComponent& tr)
